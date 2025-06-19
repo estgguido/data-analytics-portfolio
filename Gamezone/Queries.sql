@@ -54,4 +54,25 @@ FROM LaggedRevenue
 ORDER BY sales_year; 
 
 
+/*What is the distribution of purchases between the website and mobile app? 
+Is there a dominant platform, and how has this changed over time?*/
+
+WITH purchase_platform_count_per_year AS ( --Calculating orders/purchases for each platform (mobile and web) per year
+	SELECT EXTRACT(YEAR FROM purchase_ts) AS purchase_year, purchase_platform, COUNT (order_id) AS purchases 
+	FROM "Orders"
+	WHERE EXTRACT(YEAR FROM purchase_ts) IS NOT NULL
+	GROUP BY purchase_platform, EXTRACT(YEAR FROM purchase_ts)
+	ORDER BY purchase_year
+),
+total_order_count_per_year AS ( --Counting total orders per year
+	SELECT EXTRACT(YEAR FROM purchase_ts) AS purchase_year,count(order_id) AS total_orders_in_year
+	FROM "Orders"
+	GROUP BY purchase_year
+)
+SELECT ppcpy.purchase_year, ppcpy.purchase_platform, ppcpy.purchases, --Calculation
+tocpy.total_orders_in_year, ROUND((CAST(ppcpy.purchases AS NUMERIC)/tocpy.total_orders_in_year * 100.0),2) AS percentage_of_yearly_purchases
+FROM purchase_platform_count_per_year ppcpy JOIN total_order_count_per_year tocpy
+on ppcpy.purchase_year = tocpy.purchase_year;
+
+
 
