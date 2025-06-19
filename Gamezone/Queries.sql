@@ -29,7 +29,7 @@ ranked_products AS ( --Rank
 	ORDER BY purchase_year, revenue_rank;
 
 
-/*Which countries contribute the most to our total revenue and order volume?*/
+/*Which regions contribute the most to our total revenue and order volume?*/
 
 -- Total Revenue
 SELECT r.country_code, sum(usd_price) AS total_revenue
