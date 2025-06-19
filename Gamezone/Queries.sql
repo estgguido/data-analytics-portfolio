@@ -10,6 +10,25 @@ GROUP BY "product_name", "purchase_year"
 ORDER BY total_revenue DESC
 LIMIT 3;
 
+-- What were the top 3 products by total revenue for each year?
+
+WITH yearly_product_revenue AS( --Aggregate
+	SELECT EXTRACT(YEAR FROM "purchase_ts") AS purchase_year, 
+	product_name, SUM(usd_price) as total_revenue
+	FROM "Orders"
+	WHERE EXTRACT(YEAR FROM "purchase_ts") IS NOT NULL
+	GROUP BY purchase_year, product_name ), 
+ranked_products AS ( --Rank
+	SELECT purchase_year, product_name, total_revenue,
+	DENSE_RANK() OVER (PARTITION BY purchase_year ORDER BY total_revenue DESC) as revenue_rank
+	FROM yearly_product_revenue
+) --Filtering to 3
+	SELECT purchase_year, product_name, total_revenue, revenue_rank
+	FROM ranked_products
+	WHERE revenue_rank <= 3
+	ORDER BY purchase_year, revenue_rank;
+
+
 /*Which countries contribute the most to our total revenue and order volume?*/
 
 -- Total Revenue
