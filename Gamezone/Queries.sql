@@ -29,10 +29,13 @@ ranked_products AS ( --Rank
 	ORDER BY purchase_year, revenue_rank;
 
 
-/*Which regions contribute the most to our total revenue and order volume?*/
+/*Which regions contribute the most to our total revenue?*/
 
-
-
+SELECT region, sum(usd_price) AS total_revenue
+FROM "Orders" o RIGHT JOIN regions r 
+on o.country_code = r.country_code
+GROUP BY region
+ORDER BY total_revenue DESC;
 
 -- What is the year-over-year growth rate in total revenue? 
    -- Step 1, Calculate total revenue for each year
