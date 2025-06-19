@@ -1,7 +1,7 @@
 
 Queries:
 
--- Top 3 products that performed the best in 2020?
+-- What were the top 3 products by total revenue in the year 2020?
 SELECT DISTINCT"product_name", SUM(usd_price) as total_revenue, 
 EXTRACT(YEAR FROM "purchase_ts") AS purchase_year
 FROM "Orders"
