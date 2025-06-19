@@ -54,6 +54,14 @@ FROM PreviousYearRevenue
 ORDER BY sales_year; 
 
 
+/*Which products are performing best within each specific marketing channel (like 'direct', 'email', 'affiliate', etc.)*/
+SELECT marketing_channel, product_name, count(order_id) AS number_of_orders
+FROM "Orders"
+WHERE marketing_channel <> 'unknown'
+GROUP BY marketing_channel, product_name
+ORDER BY marketing_channel, number_of_orders DESC;
+
+
 /*What is the distribution of purchases between the website and mobile app? 
 Is there a dominant platform, and how has this changed over time?*/
 
@@ -62,13 +70,11 @@ WITH purchase_platform_count_per_year AS ( --Calculating orders/purchases for ea
 	FROM "Orders"
 	WHERE EXTRACT(YEAR FROM purchase_ts) IS NOT NULL
 	GROUP BY purchase_platform, EXTRACT(YEAR FROM purchase_ts)
-	ORDER BY purchase_year
-),
+	ORDER BY purchase_year),
 total_order_count_per_year AS ( --Counting total orders per year
 	SELECT EXTRACT(YEAR FROM purchase_ts) AS purchase_year,count(order_id) AS total_orders_in_year
 	FROM "Orders"
-	GROUP BY purchase_year
-)
+	GROUP BY purchase_year)
 SELECT ppcpy.purchase_year, ppcpy.purchase_platform, ppcpy.purchases, --Calculation
 tocpy.total_orders_in_year, ROUND((CAST(ppcpy.purchases AS NUMERIC)/tocpy.total_orders_in_year * 100.0),2) AS percentage_of_yearly_purchases
 FROM purchase_platform_count_per_year ppcpy JOIN total_order_count_per_year tocpy
