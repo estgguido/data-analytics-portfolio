@@ -40,7 +40,7 @@ WITH YearlyRevenue AS (
     FROM "Orders"
     WHERE purchase_ts IS NOT NULL 
     GROUP BY sales_year),
-LaggedRevenue AS (
+PreviousYearRevenue AS (
     SELECT sales_year, total_revenue,
     LAG(total_revenue, 1) OVER (ORDER BY sales_year) AS previous_year_revenue
     FROM YearlyRevenue)
@@ -50,7 +50,7 @@ SELECT sales_year, total_revenue, previous_year_revenue,
         WHEN previous_year_revenue = 0 THEN NULL -- Avoid division by zero if previous year revenue was 0
         ELSE ((total_revenue - previous_year_revenue) * 100.0 / previous_year_revenue)
     END AS yoy_growth_rate_percent
-FROM LaggedRevenue
+FROM PreviousYearRevenue
 ORDER BY sales_year; 
 
 
