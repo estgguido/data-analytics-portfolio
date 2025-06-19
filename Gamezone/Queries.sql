@@ -31,22 +31,7 @@ ranked_products AS ( --Rank
 
 /*Which regions contribute the most to our total revenue and order volume?*/
 
--- Total Revenue
-SELECT r.country_code, sum(usd_price) AS total_revenue
-FROM "Orders" o RIGHT JOIN regions r
-on o.country_code = r.country_code
-GROUP BY r.country_code 
-HAVING sum(usd_price) IS NOT NULL
-ORDER BY total_revenue DESC
-LIMIT 5;
 
--- Order Volume
-SELECT r.country_code, COUNT(order_id)
-FROM "Orders" o RIGHT JOIN regions r
-on o.country_code = r.country_code
-GROUP BY r.country_code
-ORDER BY count(order_id) DESC
-LIMIT 5;
 
 
 -- What is the year-over-year growth rate in total revenue? 
