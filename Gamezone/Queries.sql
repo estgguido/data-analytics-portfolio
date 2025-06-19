@@ -1,5 +1,5 @@
 
-## Queries:
+Queries:
 
 -- Top 3 products that performed the best in 2020?
 SELECT DISTINCT"product_name", SUM(usd_price) as total_revenue, 
