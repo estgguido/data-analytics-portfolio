@@ -37,10 +37,22 @@ on o.country_code = r.country_code
 GROUP BY region
 ORDER BY total_revenue DESC;
 
+/*Which countries contribute the most to our total revenue*/
+
+SELECT r.country_code, sum(usd_price) AS total_revenue
+FROM "Orders" o RIGHT JOIN regions r
+on o.country_code = r.country_code
+GROUP BY r.country_code 
+HAVING sum(usd_price) IS NOT NULL
+ORDER BY total_revenue DESC
+LIMIT 5;
+
+
 -- What is the year-over-year growth rate in total revenue? 
    -- Step 1, Calculate total revenue for each year
    -- Step 2, Get previous year's revenue
    -- Step 3, Calculate year over year growth
+
 
 WITH YearlyRevenue AS (
     SELECT EXTRACT(YEAR FROM purchase_ts) AS sales_year, SUM(usd_price) AS total_revenue
@@ -62,6 +74,7 @@ ORDER BY sales_year;
 
 
 /*Which products are performing best within each specific marketing channel (like 'direct', 'email', 'affiliate', etc.)*/
+
 SELECT marketing_channel, product_name, count(order_id) AS number_of_orders
 FROM "Orders"
 WHERE marketing_channel <> 'unknown'
