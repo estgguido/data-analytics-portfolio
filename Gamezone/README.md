@@ -43,7 +43,7 @@ https://public.tableau.com/views/GameZoneDashboard/GameZonePerformanceDashboard?
 ## Recommendations
 Based on the insights, we recommend the following actions:
 
-**Invest in Mobile-First Strategies:** Given that The mobile app has shown a consistent increase in adoption, rising from 6.3% of total purchases in 2019 to 20% in 2021, efforts should be focused on optimizing the in-app user experience, targeted push notifications, and mobile-exclusive promotions to further capitalize on this trend.
+**Invest in Mobile-First Strategies:** Given that the mobile app has shown a consistent increase in adoption, rising from 6.3% of total purchases in 2019 to 20% in 2021, efforts should be focused on optimizing the in-app user experience, targeted push notifications, and mobile-exclusive promotions to further capitalize on this trend.
 
 **Reinforce Presence in High Performing Markets:** Increase marketing spend and targeted campaigns in the top 5 countries (USA, UK, Germany, Canada, France), as they represent the most significant revenue base.
 
