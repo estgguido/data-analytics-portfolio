@@ -72,7 +72,7 @@ GROUP By category
 ORDER BY estimated_revenue;
 
 
--- Find all products where MRP is greater than ₹500 and discount is less than 10%.
+-- Find all products where MRP is greater than 500 and discount is less than 10%.
 SELECT distinct name, mrp, discountpercent
 FROM zepto 
 WHERE mrp > 500 AND discountpercent < 10
