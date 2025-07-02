@@ -48,6 +48,8 @@ GROUP BY name
 HAVING count(sku_id) > 1
 ORDER BY count(sku_id) DESC;
 
+-- Analysis
+
 -- Find the top 10 best-value products based on the discount percentage.
 SELECT DISTINCT name, discountpercent
 FROM zepto
