@@ -1,7 +1,7 @@
 # ZEPTO: Product Catalog Analysis
 
 ## Background and Overview
-Zepto, a leader in the 10-minute grocery delivery space, operates in a highly competitive market. To maintain its growth trajectory, the company must continuously optimize its product catalog, pricing, and inventory management. This analysis serves as an internal report for department heads (Procurement, Marketing, and Operations) to highlight key opportunities within the current product offerings.
+Zepto is a ecommerce company that delivers groceries and essentials, and to maintain its growth trajectory, the company must continuously optimize its product catalog, pricing, and inventory management. This analysis serves as an internal report for department heads (Procurement, Marketing, and Operations) to highlight key opportunities within the current product offerings.
 
 The goal of this project is to analyze Zepto's product data to identify actionable insights that can drive revenue, improve inventory turnover, and enhance marketing effectiveness. By examining the product catalog through the lenses of pricing, stock availability, and category performance, we can uncover strategic opportunities to strengthen our market position.
 
