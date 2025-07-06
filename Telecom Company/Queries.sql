@@ -23,6 +23,22 @@ WHERE churn_category IS NOT NULL
 GROUP BY churn_category
 ORDER BY count(churn_category) DESC;
 
+-- How does the churn rate differ between customers with different internet types (e.g., Cable, Fiber Optic, DSL)?
+SELECT internet_type, ROUND((CAST(COUNT(CASE WHEN customer_status = 'Churned' THEN 1 END) AS NUMERIC) / count(*)) * 100, 2) AS churn_rate
+FROM telecom_churn
+WHERE internet_type IS NOT NULL
+GROUP BY internet_type;
+
+
+-- Which promotional offers have been most effective at acquiring and retaining customers?
+SELECT offer, COUNT(*) AS total_customers_acquired,
+ROUND(CAST((100.0 * COUNT(CASE WHEN customer_status = 'Churned' THEN 1 END) / COUNT(*)) AS NUMERIC), 2) AS churn_rate_percentage
+FROM telecom_churn
+WHERE offer != 'None' 
+GROUP BY offer
+ORDER BY churn_rate_percentage ASC;
+
+
 -- What is the average tenure for churned customers versus customers who have stayed?
 SELECT customer_status, ROUND(AVG(tenure_in_months),2) AS "Average Tenure in Months"
 FROM telecom_churn
