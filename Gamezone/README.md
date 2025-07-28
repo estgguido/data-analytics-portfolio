@@ -59,5 +59,11 @@ View SQL Queries - [LINK](https://github.com/estgguido/data-analytics-portfolio/
 
 ### Data Cleaning
 
-The file 'gamezone-orders-data-copy.xlsx' contains both the original (uncleaned) dataset and the cleaned version for easy side-by-side comparison.
+The file 'gamezone-orders-data-copy.xlsx' contains both the original (uncleaned) dataset and the cleaned version for easy side-by-side comparison. Please take a moment to review the file, as it highlights how I:
+	•	Document my data cleaning process and track issues in the raw data
+	•	Conduct exploratory data analysis (EDA) with clear annotations
+	•	Capture and summarize preliminary insights
+	•	Use visual tools like a heatmap to explore seasonality and trends
+
+<img width="1228" height="551" alt="Screenshot 2025-07-28 at 6 40 15 PM" src="https://github.com/user-attachments/assets/c0227cee-066e-4077-972c-ebff9424fd70" />
 
