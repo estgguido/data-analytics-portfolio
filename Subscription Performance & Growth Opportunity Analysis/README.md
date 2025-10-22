@@ -28,6 +28,6 @@ Based on the insights, we recommend the following strategic actions:
 
 ## Technical Appendix
 
-The analysis was performed using Excel for data cleaning and metric calculation.
+The analysis was performed using Excel for data cleaning and metric calculation. The attached excel file includes the original dataset, and preliminary findings and calculations from which the findings were derived.
 
 
