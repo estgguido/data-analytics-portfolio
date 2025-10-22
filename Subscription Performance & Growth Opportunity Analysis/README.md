@@ -15,7 +15,7 @@ The dataset (Subscription Cohort Analysis Data.csv) contains subscription-level 
 ## Detailed Findings
 
 - Rapid Churn: The average lifespan for a churned customer is only 1.9 months (~58 days). This signals that customers are not finding long-term value in the service.
-- "Same-Day Churn": A significant number of customers (108 in our analysis) canceled on the very same day they signed up. This is a major red flag that points to a problem with:
+- "Same-Day Churn": A significant number of customers (108 in our analysis) canceled on the very same day they signed up. This is a major red flag that requieres attention
 - Low Customer Value: Our LTV (Customer Lifetime Value) is only $74.80. This is the most important insight. It means we are only making, on average, less than two months' revenue from each customer we lose.
 - MRR in September 2023 was $41,535.
 
@@ -23,7 +23,8 @@ The dataset (Subscription Cohort Analysis Data.csv) contains subscription-level 
 
 Based on the insights, we recommend the following strategic actions:
 - The business is doing excellent in acquiring new customers but struggles significantly with retaining them. Invest more efforts in customer retention and our value offer.
-
+- We need to understand why customers are leaving, and get qualitative data as fast as possible. One potential option is launching a cancellation survey. Could potentially offer a $5 gift card for 10 minutes of their time to understand exactly what went wrong. Was the onboarding confusing? Did the product fail to deliver on a marketing promise?
+- Focus on Onboarding. Our goal is to get every new user past the 2-month mark. The best way to do this is with a strong onboarding experience.
 
 ## Technical Appendix
 
